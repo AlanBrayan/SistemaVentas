@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\NegocioController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\WelcomeController;
 
 
 /*
@@ -30,6 +31,9 @@ Route::resource('negocios', NegocioController::class);
 
 
 Route::resource('ventas', VentaController::class);
+
+
+Route::resource('/', WelcomeController::class);
 
 
 Route::get('/get-products/{negocio_id}', 'PrController@getProducts');

@@ -6,7 +6,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Models\Negocio;
 
-class ProductoController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return view ('producto.index', compact('productos'));
+        return view ('welcome', compact('productos'));
         
         
     }
@@ -36,19 +36,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //Recuperar datos del formulario para guardarlos en la base de datos
         $productos = new Producto;
         $productos->nombre=$request->nombre;
         $productos->precio=$request->precio;
         $productos->negocio_id=$request->negocio_id;
-        //Agregar imagen y guardar ruta y nombre en la base de datos
+    
         if($request->hasFile('imagen')){
             $file = $request->file('imagen');
             $nombreImagen = time().$file->getClientOriginalName();
             $file->move(public_path().'/imagenes/', $nombreImagen);
             $productos->imagen = $nombreImagen;
         }
-        //Guardar datos y retornar a misma vista usando back
+    
         $productos->save();
         return redirect()->back();
     }
