@@ -1,4 +1,5 @@
-<form action="{{ route('productos.store') }}" method="POST">
+<form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
+
     @csrf
 
     <div class="form-group">
@@ -8,6 +9,12 @@
     <div class="form-group">
         <label for="precio">Precio</label>
         <input type="number" class="form-control" name="precio" id="precio" aria-describedby="helpId" placeholder="">
+    </div>
+
+    
+    <div class="form-group">
+        <label for="precio">Imagen</label>
+        <input type="file" class="form-control" name="imagen" id="imagen" aria-describedby="helpId" placeholder="">
     </div>
 
 

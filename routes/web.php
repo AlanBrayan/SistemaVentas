@@ -32,5 +32,5 @@ Route::resource('negocios', NegocioController::class);
 Route::resource('ventas', VentaController::class);
 
 
-Route::get('/get-products/{negocio_id}', 'ProductController@getProducts');
+Route::get('/get-products/{negocio_id}', 'PrController@getProducts');
 

@@ -35,16 +35,22 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-
         $productos = new Producto;
         $productos->nombre=$request->nombre;
         $productos->precio=$request->precio;
         $productos->negocio_id=$request->negocio_id;
+    
+        if($request->hasFile('imagen')){
+            $file = $request->file('imagen');
+            $nombreImagen = time().$file->getClientOriginalName();
+            $file->move(public_path().'/imagenes/', $nombreImagen);
+            $productos->imagen = $nombreImagen;
+        }
+    
         $productos->save();
         return redirect()->back();
-        
-        
     }
+    
 
     /**
      * Display the specified resource.

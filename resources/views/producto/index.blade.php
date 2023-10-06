@@ -9,7 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a name="" id="" class="btn btn-primary" href="{{ url('productos/create') }}" role="button">Crear</a>
+
  <div class="container">
     <table class="table">
         <thead>
@@ -18,6 +19,7 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Negocio</th>
+                <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -30,12 +32,21 @@
                 <td> {{ $producto->nombre }} </td>
                 <td> {{ $producto->precio }} </td>
                 <td> {{ $producto->productos->nombre }} </td>
-
-                <td>Acciones</td>
+                <td>
+                    @if ($producto->imagen)
+                        <img src="{{ asset('imagenes/' . $producto->imagen) }}" width="100px" height="100px" alt="Imagen">
+                    @else
+                        <img src="{{ asset('imagenes/2.png') }}" width="100px" height="100px" alt="Imagen Alternativa">
+                    @endif
+                </td>
+                <td> Acciones </td>
             </tr>
         </tbody>
         @endforeach
     </table>
+    
+
+
  </div>
 
 </body>
