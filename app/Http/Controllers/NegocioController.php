@@ -30,6 +30,11 @@ class NegocioController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request -> validate([
+            'nombre' => 'required'
+        ]);
+
         $negocios = new Negocio;
         $negocios->nombre = $request->nombre;
         $negocios->save();

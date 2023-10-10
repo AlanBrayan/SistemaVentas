@@ -12,6 +12,10 @@
         <div class="form-group">
           <label for="">Nombre</label>
           <input type="text" class="form-control" name="nombre" id="" aria-describedby="helpId" placeholder="">
+          @error('nombre')
+          <div style="color: red">{{ $message }}</div>
+          @enderror
+          <br>
             <button type="submit">Guardar</button>
         </div>
     </form>

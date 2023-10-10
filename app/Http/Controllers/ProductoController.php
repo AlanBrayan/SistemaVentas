@@ -35,7 +35,17 @@ class ProductoController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+    
     {
+
+        $request -> validate ([
+            'nombre' => 'required',
+            'precio' => 'required',
+            'imagen' => 'required|image',
+            'negocio_id' => 'required'
+         ]);
+
+
         //Recuperar datos del formulario para guardarlos en la base de datos
         $productos = new Producto;
         $productos->nombre=$request->nombre;

@@ -1,0 +1,7 @@
+
+// composer require laravel-lang/lang --dev
+// composer require laravel-lang/publisher laravel-lang/lang laravel-lang/attributes --dev
+// php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
+// Para activar el idioma español, utiliza el siguiente comando:
+// php artisan lang:add es
+// Este comando crea la carpeta "es" con todos los archivos PHP y archivos JSON en la carpeta lang.

@@ -39,6 +39,9 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
+
+    
+
      $ventas = new ventas;   
      $ventas->negocio_id = $request->negocio;
      $ventas->producto_id = $request->producto;
