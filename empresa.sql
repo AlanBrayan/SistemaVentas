@@ -25,6 +25,16 @@ CREATE TABLE productos (
     empresa_id INT,
     FOREIGN KEY (empresa_id) REFERENCES empresas(id)
 );
+-- Crear la tabla 'ventas'
+
+CREATE TABLE ventas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    producto_id INT,
+    cantidad INT NOT NULL,
+    precio_total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
 
 
 -- Insertar datos sencillos
